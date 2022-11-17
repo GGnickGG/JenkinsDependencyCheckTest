@@ -3,11 +3,11 @@ pipeline {
 	stages {
 		stage('Checkout SCM') {
 			steps {
-				git 'https://github.com/GGnickGG/JenkinsDependencyCheckTest.git'
+				git '/home/JenkinsDependencyCheckTest'
 			}
 		}
 
-		stage('OWASP') {
+		stage('OWASP DependencyCheck') {
 			steps {
 				dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'Default'
 			}
